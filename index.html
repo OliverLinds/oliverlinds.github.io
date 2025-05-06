@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=1024">
   <title>Kodikas Koti - Sisustuspalvelut</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --paavari: #8D6748;
@@ -13,181 +13,319 @@
       --vihrea: #4F6849;
       --valkoinen: #FFFFFF;
     }
+    
     body {
       margin: 0;
       font-family: 'Open Sans', Arial, sans-serif;
       background: var(--valkoinen);
       color: var(--paavari);
       min-width: 1024px;
+      line-height: 1.6;
     }
+
     header {
+      position: sticky;
+      top: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: var(--beige);
-      padding: 24px 48px;
+      padding: 1.5rem 3rem;
       border-bottom: 4px solid var(--paavari);
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
+
     .logo {
       display: flex;
       align-items: center;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: bold;
-      font-size: 32px;
+      font-size: 2rem;
       color: var(--paavari);
+      text-decoration: none;
+      transition: opacity 0.2s;
     }
+
+    .logo:hover {
+      opacity: 0.9;
+    }
+
     .logo-icon {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       background: var(--paavari);
       border-radius: 8px;
-      margin-right: 16px;
+      margin-right: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--beige);
+      font-size: 1.8rem;
     }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 32px;
+      gap: 2rem;
       margin: 0;
       padding: 0;
     }
+
     nav a {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 1.1rem;
       color: var(--paavari);
       text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background 0.2s;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      position: relative;
     }
-    nav a:focus, nav a:hover {
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 3px;
       background: var(--vihrea);
-      color: var(--valkoinen);
-      outline: 2px solid var(--vihrea);
+      transition: width 0.3s ease;
     }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      background: var(--vihrea);
+      color: var(--valkoinen) !important;
+    }
+
     main {
       display: flex;
-      max-width: 1200px;
-      margin: 40px auto;
-      gap: 40px;
-      justify-content: center;
+      max-width: 1280px;
+      margin: 3rem auto;
+      gap: 3rem;
+      padding: 0 2rem;
     }
+
     .content {
       flex: 2;
       text-align: center;
+      animation: fadeIn 0.6s ease;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .content h1 {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: bold;
-      font-size: 36px;
-      margin-bottom: 24px;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
       color: var(--paavari);
+      line-height: 1.3;
     }
+
     .content p {
-      font-size: 18px;
-      margin-bottom: 32px;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
       color: var(--paavari);
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
+
     .cta-btn {
       background: var(--vihrea);
       color: var(--valkoinen);
-      font-size: 20px;
+      font-size: 1.2rem;
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: bold;
-      padding: 16px 40px;
+      padding: 1rem 2.5rem;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      margin-bottom: 32px;
-      transition: background 0.2s;
+      margin: 2rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(79,104,73,0.2);
     }
-    .cta-btn:focus, .cta-btn:hover {
+
+    .cta-btn:hover,
+    .cta-btn:focus {
       background: var(--paavari);
-      outline: 2px solid var(--vihrea);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(79,104,73,0.3);
+      outline: none;
     }
+
     .main-image {
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
       border-radius: 12px;
-      margin: 32px auto 0 auto;
+      margin: 2rem auto;
       display: block;
-      box-shadow: 0 0 16px rgba(141,103,72,0.08);
+      box-shadow: 0 8px 24px rgba(141,103,72,0.1);
     }
+
     aside {
       flex: 1;
       background: var(--beige);
       border-left: 4px solid var(--paavari);
-      padding: 32px 24px;
+      padding: 2rem;
       border-radius: 12px;
-      min-width: 260px;
-      align-self: flex-start;
-      margin-top: 40px;
+      min-width: 280px;
+      height: fit-content;
+      position: sticky;
+      top: 120px;
     }
+
     aside h2 {
       font-family: 'Montserrat', Arial, sans-serif;
       font-weight: bold;
-      font-size: 24px;
-      margin-bottom: 16px;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
       color: var(--paavari);
+      border-bottom: 2px solid var(--paavari);
+      padding-bottom: 0.5rem;
     }
+
     aside ul {
       list-style: none;
       padding: 0;
-      font-size: 18px;
+      font-size: 1rem;
       color: var(--paavari);
     }
+
+    aside li {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    aside li:hover {
+      background: rgba(141,103,72,0.05);
+    }
+
     aside a {
       color: var(--vihrea);
-      text-decoration: underline;
-      font-size: 18px;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
     }
-    aside a:focus, aside a:hover {
+
+    aside a:hover,
+    aside a:focus {
       color: var(--paavari);
-      background: var(--vihrea);
-      color: var(--valkoinen);
-      outline: 2px solid var(--vihrea);
+      border-bottom-color: var(--paavari);
     }
-    @media (max-width: 1200px) {
-      main { flex-direction: column; align-items: center; }
-      aside { margin-top: 0; margin-bottom: 40px; }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .service-card {
+      background: var(--beige);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--beige);
+      border-radius: 12px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid var(--paavari);
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .map-container {
+      height: 300px;
+      background: var(--beige);
+      border-radius: 12px;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo" aria-label="Kodikas Koti logo">
+    <a href="index.html" class="logo" aria-label="Kodikas Koti logo">
       <span class="logo-icon" aria-hidden="true">🏠</span>
       Kodikas Koti
-    </div>
+    </a>
     <nav aria-label="Päävalikko">
       <ul>
-        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="index.html" class="active">Etusivu</a></li>
         <li><a href="palvelut.html">Palvelut</a></li>
         <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
       </ul>
     </nav>
   </header>
+  
   <main>
+    <!-- Etusivun sisältö -->
     <section class="content">
-      <h1>Tervetuloa Kodikas Koti - Sisustuspalvelut</h1>
+      <h1>Luo unelmiesi koti kanssamme</h1>
       <p>
-        Kodikas Koti tarjoaa lämpimän ja yksilöllisen sisustussuunnittelun palvelut kotiisi. Autamme sinua luomaan viihtyisän ja toimivan kodin, jossa on hyvä olla. Palvelumme kattavat kaiken pienistä muutoksista kokonaisvaltaisiin sisustusratkaisuihin – aina sinun toiveidesi mukaan.
+        Kodikas Koti on suunnitellut yli 500 onnellista kotia ympäri Suomen. Yhdistämme modernin designin ja klassisen tyylikkyyden luodaksemme sinulle täydellisen ympäristön. 
       </p>
       <button class="cta-btn" onclick="window.location.href='palvelut.html'">Tutustu palveluihimme</button>
-      <img src="cozy-livingroom.jpg" alt="Viihtyisä olohuone, vaalea sohva ja sisustuselementtejä" class="main-image">
+      <img src="cozy-livingroom.jpg" alt="Moderni olohuone valkoisella sohvalla ja luonnonkiviseinällä" class="main-image">
     </section>
+
     <aside aria-label="Yhteystiedot">
-      <h2>Yhteystiedot</h2>
+      <h2>Ota yhteyttä</h2>
       <ul>
-        <li>Sähköposti: <a href="mailto:info@kodikaskoti.fi">info@kodikaskoti.fi</a></li>
-        <li>Puhelin: <a href="tel:+358401234567">040 123 4567</a></li>
-        <li>Osoite: Sisustajankatu 1, 00100 Helsinki</li>
+        <li>📧 <a href="mailto:info@kodikaskoti.fi">info@kodikaskoti.fi</a></li>
+        <li>📱 <a href="tel:+358401234567">040 123 4567</a></li>
+        <li>📍 Sisustajankatu 1<br>00100 Helsinki</li>
       </ul>
     </aside>
   </main>
