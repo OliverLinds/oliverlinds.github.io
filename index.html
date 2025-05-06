@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1024">
+  <title>Kodikas Koti - Sisustuspalvelut</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paavari: #8D6748;
+      --beige: #F5EFE6;
+      --vihrea: #4F6849;
+      --valkoinen: #FFFFFF;
+    }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', Arial, sans-serif;
+      background: var(--valkoinen);
+      color: var(--paavari);
+      min-width: 1024px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--beige);
+      padding: 24px 48px;
+      border-bottom: 4px solid var(--paavari);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 32px;
+      color: var(--paavari);
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--paavari);
+      border-radius: 8px;
+      margin-right: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      color: var(--paavari);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    nav a:focus, nav a:hover {
+      background: var(--vihrea);
+      color: var(--valkoinen);
+      outline: 2px solid var(--vihrea);
+    }
+    main {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 40px;
+      justify-content: center;
+    }
+    .content {
+      flex: 2;
+      text-align: center;
+    }
+    .content h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 36px;
+      margin-bottom: 24px;
+      color: var(--paavari);
+    }
+    .content p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      color: var(--paavari);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      background: var(--vihrea);
+      color: var(--valkoinen);
+      font-size: 20px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 32px;
+      transition: background 0.2s;
+    }
+    .cta-btn:focus, .cta-btn:hover {
+      background: var(--paavari);
+      outline: 2px solid var(--vihrea);
+    }
+    .main-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      margin: 32px auto 0 auto;
+      display: block;
+      box-shadow: 0 0 16px rgba(141,103,72,0.08);
+    }
+    aside {
+      flex: 1;
+      background: var(--beige);
+      border-left: 4px solid var(--paavari);
+      padding: 32px 24px;
+      border-radius: 12px;
+      min-width: 260px;
+      align-self: flex-start;
+      margin-top: 40px;
+    }
+    aside h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: var(--paavari);
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+      color: var(--paavari);
+    }
+    aside a {
+      color: var(--vihrea);
+      text-decoration: underline;
+      font-size: 18px;
+    }
+    aside a:focus, aside a:hover {
+      color: var(--paavari);
+      background: var(--vihrea);
+      color: var(--valkoinen);
+      outline: 2px solid var(--vihrea);
+    }
+    @media (max-width: 1200px) {
+      main { flex-direction: column; align-items: center; }
+      aside { margin-top: 0; margin-bottom: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" aria-label="Kodikas Koti logo">
+      <span class="logo-icon" aria-hidden="true">🏠</span>
+      Kodikas Koti
+    </div>
+    <nav aria-label="Päävalikko">
+      <ul>
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="palvelut.html">Palvelut</a></li>
+        <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="content">
+      <h1>Tervetuloa Kodikas Koti - Sisustuspalvelut</h1>
+      <p>
+        Kodikas Koti tarjoaa lämpimän ja yksilöllisen sisustussuunnittelun palvelut kotiisi. Autamme sinua luomaan viihtyisän ja toimivan kodin, jossa on hyvä olla. Palvelumme kattavat kaiken pienistä muutoksista kokonaisvaltaisiin sisustusratkaisuihin – aina sinun toiveidesi mukaan.
+      </p>
+      <button class="cta-btn" onclick="window.location.href='palvelut.html'">Tutustu palveluihimme</button>
+      <img src="cozy-livingroom.jpg" alt="Viihtyisä olohuone, vaalea sohva ja sisustuselementtejä" class="main-image">
+    </section>
+    <aside aria-label="Yhteystiedot">
+      <h2>Yhteystiedot</h2>
+      <ul>
+        <li>Sähköposti: <a href="mailto:info@kodikaskoti.fi">info@kodikaskoti.fi</a></li>
+        <li>Puhelin: <a href="tel:+358401234567">040 123 4567</a></li>
+        <li>Osoite: Sisustajankatu 1, 00100 Helsinki</li>
+      </ul>
+    </aside>
+  </main>
+</body>
+</html>
